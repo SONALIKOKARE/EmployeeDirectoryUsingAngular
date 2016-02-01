@@ -1,0 +1,37 @@
+<div ng-controller="empInfoController">
+	<div class="form-group form-group-sm">
+		<label class="col-sm-3 control-label" for="formGroupInputSmall">Search employee by Name:</label>
+		<div class="col-sm-2">
+		  <input class="form-control" type="text" id="formGroupInputSmall"  placeholder="Enter your name Here.." ng-model="searchText.empName">
+		</div>		
+	</div>
+	<div class="form-group form-group-sm">
+		<label class="col-md-offset-2 col-sm-3 control-label" for="formGroupInputSmall">Search employee by ID:</label>
+		<div class="col-sm-2">
+		  <input class="form-control" type="number" id="formGroupInputSmall"  placeholder="Enter your name Here.." ng-model="searchText.empID">
+		</div>		
+	</div>
+		
+	<table class = "table table-hover table-bordered" ng-show="searchText.empName || searchText.empID">
+	   <caption><h2>Search result for Employees</h2></caption>
+	   
+	   <thead>
+	      <tr>
+	         <th>Employee Name</th>
+	         <th>Employee Id</th>
+	         <th>Parmanent Address</th>
+	      </tr>
+	   </thead>
+	   
+	   <tbody>
+	      <tr ng-repeat="emp in list() | filter:searchText">
+	         <td>{{emp.empName}}</td>
+	         <td>{{emp.empID}}</td>
+	         <td><button type = "button" class = "btn btn-default"><a href="#/employeeID:{{emp.empID}}">details</a></button></td>
+	      </tr>
+	   </tbody>
+	
+	</table>
+</div>
+
+

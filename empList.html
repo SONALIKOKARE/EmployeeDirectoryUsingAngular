@@ -1,0 +1,22 @@
+<table class = "table table-hover table-bordered">
+   <caption><h2>List of All Employees</h2></caption>
+   
+   <thead>
+      <tr>
+         <th>Employee Name</th>
+         <th>Employee Id</th>
+         <th>Parmanent Address</th>
+         <th>Delete Employee Details</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <tr ng-repeat="emp in list() | filter:searchText">
+         <td>{{emp.empName}}</td>
+         <td>{{emp.empID}}</td>
+         <td><a href="#/employeeID:{{emp.empID}}">details</a></td>
+         <td><input type="button" ng-click="deleteEmp(emp.empID)" data-id={{emp.empID}} value="Delete"/></td>
+      </tr>
+   </tbody>
+
+</table>
